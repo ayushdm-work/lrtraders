@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRTraders - Wholesale Men's Shirt Fabrics & Clothing</title>
+    <meta name="description" content="LRTraders: Your 1-stop shop for men's wholesale clothing. We offer premium shirt fabrics of any type and color, delivering high quality globally at wholesale prices.">
+    
+    <style>
+        /*------------------------------------*\
+          :ROOT (VARIABLES)
+        \*------------------------------------*/
+        :root {
+            --color-bg: #ffffff;
+            --color-bg-light: #f7f9fa;
+            --color-text: #333333;
+            --color-primary: #0a4d68; /* Professional Dark Blue */
+            --color-secondary: #088395; /* Lighter Teal/Blue */
+            --color-accent: #f5a623; /* Strong Orange/Yellow CTA */
+            --color-accent-text: #000000;
+            --color-white: #ffffff;
+            --color-border: #eeeeee;
+
+            --font-primary: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+            --font-weight-reg: 400;
+            --font-weight-bold: 700;
+
+            --container-width: 1140px;
+            --gutter: 1rem;
+            --radius: 8px;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        /*------------------------------------*\
+          GLOBAL RESET & BASE
+        \*------------------------------------*/
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-bottom: 60px; /* Space for floating mobile CTA */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; text-align: center; margin-bottom: 2rem; }
+        h3 { font-size: 1.25rem; }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--color-secondary);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--color-primary);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /*------------------------------------*\
+          LAYOUT & HELPERS
+        \*------------------------------------*/
+        .container {
+            max-width: var(--container-width);
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: var(--gutter);
+            padding-right: var(--gutter);
+        }
+
+        section {
+            padding: 3rem 0;
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--color-bg-light);
+        }
+
+        /* Screen-reader only utility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Accessibility: visible focus */
+        :focus-visible {
+            outline: 3px solid var(--color-accent);
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /*------------------------------------*\
+          CALL TO ACTION (CTA) BUTTONS
+        \*------------------------------------*/
+        .cta {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .cta-primary {
+            background-color: var(--color-accent);
+            color: var(--color-accent-text);
+            border-color: var(--color-accent);
+        }
+
+        .cta-primary:hover {
+            background-color: #e0941c;
+            border-color: #e0941c;
+            color: var(--color-accent-text);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            color: var(--color-primary);
+            border-color: var(--color-primary);
+        }
+
+        .cta-secondary:hover {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /*------------------------------------*\
+          HEADER & NAVIGATION
+        \*------------------------------------*/
+        .site-header {
+            background-color: var(--color-white);
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--color-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+        .logo:hover {
+            color: var(--color-secondary);
+        }
+
+        .header-phone {
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .header-phone:hover {
+            color: var(--color-accent);
+        }
+
+        .primary-nav ul {
+            display: none; /* Mobile-first: nav is hidden */
+        }
+
+        /*------------------------------------*\
+          HERO SECTION
+        \*------------------------------------*/
+        #hero {
+            background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+            color: var(--color-white);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        #hero h1 {
+            color: var(--color-white);
+            font-size: 2.2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #hero .subheadline {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.9;
+        }
+
+        #hero .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #hero .cta-secondary {
+            color: var(--color-white);
+            border-color: var(--color-white);
+        }
+        #hero .cta-secondary:hover {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+        }
+
+        /*------------------------------------*\
+          FEATURES SECTION
+        \*------------------------------------*/
+        .features-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .feature-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon-placeholder {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--color-light);
+            border: 2px solid var(--color-secondary);
+            color: var(--color-secondary);
+            display: grid;
+            place-items: center;
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin: 0 auto 1rem;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /*------------------------------------*\
+          FABRIC SHOWCASE
+        \*------------------------------------*/
+        .fabric-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .fabric-card {
+            background-color: var(--color-white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+        
+        .fabric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .fabric-image-placeholder {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .fabric-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .fabric-content p {
+            font-size: 0.9rem;
+            flex-grow: 1;
+        }
+        
+        .fabric-content .cta {
+            margin-top: 1rem;
+        }
+
+        /*------------------------------------*\
+          HOW IT WORKS (TIMELINE)
+        \*------------------------------------*/
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .timeline-step {
+            position: relative;
+            background-color: var(--color-white);
+            padding: 2rem;
+            border-radius: var(--radius);
+            border-left: 5px solid var(--color-secondary);
+        }
+
+        .step-number {
+            font-size: 3rem;
+            font-weight: var(--font-weight-bold);
+            color: var(--color-bg-light);
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            z-index: 0;
+        }
+
+        .timeline-step h3,
+        .timeline-step p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .timeline-arrow {
+            display: none; /* Hidden on mobile */
+        }
+
+        /*------------------------------------*\
+          ABOUT SECTION
+        \*------------------------------------*/
+        #about .container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .trust-signals {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .trust-signal {
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            background-color: var(--color-white);
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            border: 2px solid var(--color-border);
+        }
+
+        /*------------------------------------*\
+          FOOTER & CONTACT
+        \*------------------------------------*/
+        .site-footer {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        .site-footer h3 {
+            color: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+
+        .site-footer p,
+        .site-footer li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .site-footer a {
+            color: var(--color-white);
+        }
+        .site-footer a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-placeholder {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--color-white);
+            display: grid;
+            place-items: center;
+            font-size: 0.9rem;
+            font-weight: var(--font-weight-bold);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+        .social-placeholder:hover {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-accent-text);
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid var(--color-secondary);
+            padding-top: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /*------------------------------------*\
+          FLOATING MOBILE CTA
+        \*------------------------------------*/
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--color-accent);
+            color: var(--color-accent-text);
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: var(--font-weight-bold);
+            z-index: 999;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+            transition: var(--transition);
+        }
+        .floating-cta:hover {
+            background-color: #e0941c;
+            color: var(--color-accent-text);
+        }
+
+        /*------------------------------------*\
+          RESPONSIVE BREAKPOINTS (Desktop)
+        \*------------------------------------*/
+        @media (min-width: 768px) {
+            body {
+                padding-bottom: 0; /* Remove space on desktop */
+            }
+            
+            h1 { font-size: 3rem; }
+            #hero { padding: 6rem 0; }
+            #hero h1 { font-size: 3rem; }
+            #hero .subheadline { font-size: 1.25rem; }
+
+            #hero .cta-buttons {
+                flex-direction: row;
+            }
+
+            /* Show desktop nav */
+            .primary-nav ul {
+                display: flex;
+                gap: 1.5rem;
+            }
+
+            .primary-nav a {
+                font-weight: var(--font-weight-bold);
+                color: var(--color-text);
+                padding: 0.5rem 0;
+            }
+            .primary-nav a:hover {
+                color: var(--color-accent);
+            }
+
+            .header-phone {
+                font-size: 1rem;
+                margin-left: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .fabric-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .timeline {
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .timeline-step {
+                flex: 1;
+            }
+
+            .timeline-arrow {
+                display: block;
+                font-size: 2.5rem;
+                color: var(--color-secondary);
+                text-align: center;
+            }
+            
+            .trust-signals {
+                flex-direction: row;
+                justify-content: center;
+            }
+            .trust-signal {
+                padding: 1rem 1.5rem;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+
+            /* Hide floating mobile CTA */
+            .floating-cta {
+                display: none;
+            }
+        }
+
+        @media (min-width: 500px) and (max-width: 767px) {
+            /* Tablet: 2-col grids */
+            .fabric-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            /* Center the last feature card if there are 3 */
+            .features-grid .feature-card:last-child:nth-child(odd) {
+                grid-column: span 2;
+            }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "LRTraders",
+      "url": "https://www.lrtraders.example.com",
+      "logo": "https://www.lrtraders.example.com/logo.png",
+      "description": "LRTraders, a 1 stop shop for mens clothing at wholesale prices, best quality shirt fabrics, any fabric type, any color, anytime, deliver anywhere.",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+91-9969-799077",
+        "contactType": "Sales & Customer Service",
+        "areaServed": "IN",
+        "availableLanguage": "en"
+      }
+    }
+    </script>
+</head>
+<body>
+
+    <header class="site-header" role="banner">
+        <div class="container">
+            <a href="#" class="logo">LRTraders</a>
+            <nav class="primary-nav" role="navigation" aria-label="Main Navigation">
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#fabrics">Fabrics</a></li>
+                    <li><a href="#how-it-works">Process</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="tel:+919969799077" class="header-phone" aria-label="Call us at +91 9969 799077">Call Us: +91 9969 799077</a>
+        </div>
+    </header>
+
+    <main role="main">
+
+        <section id="hero">
+            <div class="container">
+                <h1>Premium Men's Shirt Fabrics at Wholesale Prices</h1>
+                <p class="subheadline">
+                    Your one-stop shop for high-quality men's shirt fabrics. Any type, any color, delivered anywhere.
+                </p>
+                <div class="cta-buttons">
+                    <a href="tel:+919969799077" class="cta cta-primary">Get a Quote</a>
+                    <a href="#fabrics" class="cta cta-secondary">View Fabrics</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container">
+                <h2>Why Choose LRTraders?</h2>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="icon-placeholder" aria-hidden="true">💲</div>
+                        <h3>Wholesale Pricing</h3>
+                        <p>Access top-tier fabrics and clothing at unbeatable bulk prices, direct from the source.</p>
+                        <a href="tel:+919969799077" class="cta cta-secondary">Get a Quote</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-placeholder" aria-hidden="true">🧵</div>
+                        <h3>Premium Fabrics</h3>
+                        <p>From pure cottons and linens to rich blends, we source only the best quality materials.</p>
+                        <a href="tel:+919969799077" class="cta cta-secondary">Get a Quote</a>
+                    </article>
+                    <article class="feature-card">
+                        <div class="icon-placeholder" aria-hidden="true">🌍</div>
+                        <h3>Global Delivery</h3>
+                        <p>We deliver your order safely and efficiently to your doorstep, anywhere in the world.</p>
+                        <a href="tel:+919969799077" class="cta cta-secondary">Get a Quote</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="fabrics">
+            <div class="container">
+                <h2>Our Fabric Showcase</h2>
+                <div class="fabric-grid">
+                    <article class="fabric-card">
+                        <img src="https://cdn00.nnnow.com/web-images/large/styles/7QHWA9F0M96/1740462732258/1.jpg" alt="Classic Cotton Twill Fabric" class="fabric-image-placeholder">
+                        <div class="fabric-content">
+                            <h3>Classic Cotton Twill</h3>
+                            <p>Durable, soft, and versatile. Perfect for formal and casual business shirts.</p>
+                            <a href="tel:+919969799077" class="cta cta-primary">Get a Quote</a>
+                        </div>
+                    </article>
+                    <article class="fabric-card">
+                         <img src="https://cdn.shopify.com/s/files/1/0207/9406/files/02_Cotton_Oxford_Dark_Chambray_Model_Front.jpg?v=1695816897&width=600" alt="Oxford Chambray" class="fabric-image-placeholder">
+                        <div class="fabric-content">
+                            <h3>Oxford Chambray</h3>
+                            <p>A lightweight, breathable classic with a textured look. Ideal for smart-casual wear.</p>
+                            <a href="tel:+919969799077" class="cta cta-primary">Get a Quote</a>
+                        </div>
+                    </article>
+                    <article class="fabric-card">
+                          <img src="https://pinksupply.in/cdn/shop/files/12_ed21ab94-ae1c-4705-940e-4cf69f6e025b.jpg?v=1747826130&width=480" alt="OPremium Irish Linen" class="fabric-image-placeholder">
+                        <div class="fabric-content">
+                            <h3>Premium Irish Linen</h3>
+                            <p>Naturally cool and absorbent. The definitive choice for luxury summer shirts.</p>
+                            <a href="tel:+919969799077" class="cta cta-primary">Get a Quote</a>
+                        </div>
+                    </article>
+                    <article class="fabric-card">
+                          <img src="https://cdn05.nnnow.com/web-images/large/styles/EVA20B1ERLY/1690182609466/1.jpg" alt="Silky Poplin" class="fabric-image-placeholder">
+                        <div class="fabric-content">
+                            <h3>Silky Poplin</h3>
+                            <p>A smooth, crisp, and lightweight fabric with a fine weave. Excellent for dress shirts.</p>
+                            <a href="tel:+919969799077" class="cta cta-primary">Get a Quote</a>
+                        </div>
+                    </article>
+                    <article class="fabric-card">
+                          <img src="https://wrogn.com/cdn/shop/files/1_54153b26-04e7-49da-a5f9-8b037d4ff115.jpg?v=1751437804" alt="Herringbone Weave" class="fabric-image-placeholder">
+                        <div class="fabric-content">
+                            <h3>Herringbone Weave</h3>
+                            <p>A distinctive V-shaped pattern that adds subtle texture and sophistication.</p>
+                            <a href="tel:+919969799077" class="cta cta-primary">Get a Quote</a>
+                        </div>
+                    </article>
+                    <article class="fabric-card">
+                          <img src="https://www.fred-mello.com/cdn/shop/files/0231772.jpg?v=1753697385" alt="Printed Voile" class="fabric-image-placeholder">
+                        <div class="fabric-content">
+                            <h3>Printed Voile</h3>
+                            <p>Light, sheer, and perfect for bold custom prints and breezy summer styles.</p>
+                            <a href="tel:+919969799077" class="cta cta-primary">Get a Quote</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="how-it-works">
+            <div class="container">
+                <h2>Our Simple Process</h2>
+                <div class="timeline">
+                    <article class="timeline-step">
+                        <span class="step-number" aria-hidden="true">1</span>
+                        <h3>Enquiry & Quote</h3>
+                        <p>Call us to discuss your specific fabric types, colors, and quantity requirements.</p>
+                    </article>
+                    <div class="timeline-arrow" aria-hidden="true">→</div>
+                    <article class="timeline-step">
+                        <span class="step-number" aria-hidden="true">2</span>
+                        <h3>Sample Approval</h3>
+                        <p>We provide fabric samples for your hands-on inspection and quality approval.</p>
+                    </article>
+                    <div class="timeline-arrow" aria-hidden="true">→</div>
+                    <article class="timeline-step">
+                        <span class="step-number" aria-hidden="true">3</span>
+                        <h3>Order & Delivery</h3>
+                        <p>Once approved, we process your bulk order and ship it to you, anywhere in the world.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2>About LRTraders</h2>
+                <p>
+                    LRTraders is a leading name in the wholesale men's clothing industry, built on a foundation of trust and an unwavering commitment to quality. We specialize in sourcing and supplying the finest shirt fabrics to businesses worldwide. Our extensive network allows us to offer any fabric type, in any color, at competitive wholesale prices. We are your reliable partner for quality, consistency, and global reach.
+                </p>
+                <div class="trust-signals">
+                    <span class="trust-signal">✓ Unmatched Quality</span>
+                    <span class="trust-signal">✓ Reliable Delivery</span>
+                    <span class="trust-signal">✓ Decades of Experience</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="site-footer" id="contact" role="contentinfo">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h3>Contact Us</h3>
+                    <p><strong>Phone:</strong> <a href="tel:+919969799077">+91 9969 799077</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:ayushdm.work@gmail.com">ayushdm.work@gmail.com</a></p>
+                    <p><strong>Address:</strong> <a href="https://maps.app.goo.gl/TsoG7cCt2JyzEQCd6">2R5V+C4V, Sent Paul Street, Hindmata, Dadar East, Mumbai, Maharashtra 400014</p>
+                </div>
+
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#fabrics">Fabrics</a></li>
+                        <li><a href="#how-it-works">Process</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Follow Us</h3>
+                    <p>Connect with us on social media.</p>
+                    <div class="social-icons" role="list" aria-label="Social media">
+                        <span class="social-placeholder" role="listitem">FB</span>
+                        <span class="social-placeholder" role="listitem">IG</span>
+                        <span class="social-placeholder" role="listitem">LI</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="copyright">
+                © 2025 LRTraders. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <a href="tel:+919969799077" class="floating-cta" aria-label="Get a quote by phone">
+        📞 Get a Quote Now
+    </a>
+
+</body>
+</html>
